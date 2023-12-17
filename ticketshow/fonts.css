@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'showtime';
+    src: url('~@/assets/Showtime.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'bluto';
+    src: url('~@/assets/Bluto.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}  
+
+@font-face {
+  font-family: 'playfair';
+  src: url('~@/assets/PlayfairDisplay-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 

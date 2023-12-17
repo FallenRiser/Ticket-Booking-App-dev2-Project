@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Monthly Entertainment Review - Cover Page</title>
+<style>
+table, th, td {
+        border: 1px solid black;
+        font-size: 14px; padding: 5px; border-collapse: collapse;
+      }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+.cover-container {
+    text-align: center;
+    padding: 0px 0;
+}
+h1 {
+    color: #333;
+    font-size: 28px;
+}
+p {
+    color: #777;
+    font-size: 18px;
+}
+
+.summary-container {
+    max-width: 1300px;
+    margin: 0;
+    padding: 0px;
+    }
+
+    h2 {
+    color: #555;
+    font-size: 20px;
+    }
+
+    img.graph {
+    max-width: 100%;
+    height: auto;
+    }
+</style>
+</head>
+<body>
+<div class="cover-container">
+<h1>Monthly Entertainment Review</h1>
+<p>Ticket Show</p>
+</div>
+<div class="summary-container">
+<h1>Monthly Entertainment Review</h1>
+<h2>Hello, {{ user.user_name }}!</h2>
+
+<h2>User Information</h2>
+<p>Date Joined: {{ user.date_joined }}</p>
+
+<h2>Tickets Booked This Month</h2>
+<p>Total Tickets: {{ user.total_tickets_bought }}</p>
+
+<h2>Theatres Mostly Visited This Month</h2>
+{% for theatre in user.most_visited_theatre %}
+<p>{{ theatre }}</p>
+{% endfor %}
+
+<h2>Max Spent on one day</h2>
+<p>{{ user.max_spent }}</p>
+
+<h2>Monthly Bookings</h2>
+<table>
+    <tr>
+    <th>Movie Date</th>
+    <th>Movie Name</th>
+    <th>Movie Time</th>
+    <th>Theatre Name</th>
+    <th>Screen Number</th>
+    <th>Your Rating</th>
+    <th>Tickets</th>
+    <th>Amount Spent</th>
+    </tr>
+    {% for booking in user.bookings %}
+    <tr>
+    <td>{{ booking.movie_date }}</td>
+    <td>{{ booking.movie_title }}</td>
+    <td>{{ booking.movie_time }}</td>
+    <td>{{ booking.theatre_name }} - {{ booking.theatre_city }}</td>
+    <td>{{ booking.screen_number }} - {{ booking.screen_tech }}</td>
+    <td>{{ booking.rating }}</td>
+    <td>{{ booking.tickets_bought }}</td>
+    <td>{{ booking.amount }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Total Money Spent on Theatres</h2>
+<img class="graph" src={{ graph_image_path }} alt="Theatre Spending Graph">
+</div>
+</body>
+</html>
